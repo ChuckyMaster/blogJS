@@ -1,3 +1,2 @@
-import "./sass/style.scss";
-
-let test = "123";
+import "./assets/styles/style.scss";
+import "./index.scss";

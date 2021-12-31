@@ -7,10 +7,10 @@ module.exports = {
   entry: {
     main: path.join(__dirname, "src/index.js"),
     form: path.join(__dirname, "src/form/form.js"),
+    topbar: path.join(__dirname, "src/assets/javascripts/topbar.js"),
   },
-
   output: {
-    path: path.resolve(__dirname, "dist"),
+    path: path.join(__dirname, "dist"),
     filename: "[name].bundle.js",
   },
   module: {
@@ -32,27 +32,27 @@ module.exports = {
       patterns: [
         {
           from: "./src/assets/images/*",
-          to: "assets/images",
+          to: "assets/images/[name][ext]",
         },
       ],
     }),
-
     new HtmlWebpackPlugin({
       filename: "index.html",
-      template: path.resolve(__dirname, "src/index.html"),
-      chunks: ["main"],
+      template: path.join(__dirname, "./src/index.html"),
+      chunks: ["main", "topbar"],
     }),
     new HtmlWebpackPlugin({
       filename: "form.html",
-      template: path.resolve(__dirname, "src/form/form.html"),
-      chunks: ["form"],
+      template: path.join(__dirname, "./src/form/form.html"),
+      chunks: ["form", "topbar"],
     }),
   ],
+  stats: "minimal",
   devtool: "source-map",
   mode: "development",
   devServer: {
-    static: path.resolve(__dirname, "./dist"),
     open: true,
+    static: path.resolve(__dirname, "./dist"),
     port: 4000,
   },
 };
