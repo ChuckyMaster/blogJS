@@ -4,3 +4,60 @@
 @import "media-queries";
 @import "utils";
 @import "base";
+
+.container {
+  min-height: 100vh;
+  display: grid;
+  grid:
+    "header" auto
+    "content" 1fr
+    "footer" auto /
+    auto;
+}
+
+header {
+  grid-area: header;
+  background: $primary;
+  padding: 15px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+
+  a {
+    color: white;
+  }
+
+  .header-brand {
+    font-size: 3rem;
+    font-weight: 700;
+  }
+  ul {
+    display: flex;
+    li {
+      .header-nav {
+        font-size: 1.2rem;
+        padding: 0 10px;
+      }
+      .active {
+        font-weight: 700;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.content {
+  grid-area: content;
+
+  padding: 20px;
+}
+
+footer {
+  color: white;
+  grid-area: footer;
+  padding: 20px;
+  background: $dark-grey;
+  font-size: 1.2rem;
+  text-align: center;
+}
