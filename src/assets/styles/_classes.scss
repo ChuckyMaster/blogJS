@@ -26,3 +26,9 @@
     color: $primary;
   }
 }
+
+.text {
+  &-error {
+    color: $error;
+  }
+}
